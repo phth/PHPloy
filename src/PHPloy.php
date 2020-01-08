@@ -1184,6 +1184,8 @@ class PHPloy
                 if ($this->currentSubmoduleName) {
                     $file = $this->currentSubmoduleName.'/'.$file;
                 }
+                // Remove base path, if set.
+                $file = $this->removeBasePath($file);
                 $numberOfFilesToDelete = count($filesToDelete);
                 $fileNo = str_pad(++$fileNo, strlen($numberOfFilesToDelete), ' ', STR_PAD_LEFT);
                 if ($this->connection->has($file)) {
