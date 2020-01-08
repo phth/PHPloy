@@ -1203,6 +1203,8 @@ class PHPloy
                 if ($this->currentSubmoduleName) {
                     $dir = $this->currentSubmoduleName.'/'.$dir;
                 }
+                // Remove base path, if set.
+                $dir = $this->removeBasePath($dir);
                 $numberOfdirsToDelete = count($dirsToDelete);
                 $dirNo = str_pad(++$dirNo, strlen($numberOfdirsToDelete), ' ', STR_PAD_LEFT);
                 if ($this->connection->has($dir)) {
